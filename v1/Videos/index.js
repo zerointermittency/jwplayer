@@ -1,6 +1,9 @@
 'use strict';
 
 const Conversions = require('./Conversions.js'),
+    Tags = require('./Tags.js'),
+    Thumbnails = require('./Thumbnails.js'),
+    Tracks = require('./Tracks.js'),
     url = {
         format: require('url').format,
     };
@@ -13,19 +16,25 @@ class Videos {
 
         // conversions/index.html
         this.conversions = new Conversions(client);
+        // tags/index.html
+        this.tags = new Tags(client);
+        // thumbnails/index.html
+        this.thumbnails = new Thumbnails(client);
+        // tracks/index.html
+        this.tracks = new Tracks(client);
     }
 
     // create.html
     create(params) {
         const client = this._client,
-            url = this._client.buildRequest('v1', 'videos/create', params);
+            url = client.buildRequest('v1', 'videos/create', params);
         return client.makeRequest(url);
     }
 
     // delete.html
     delete(params) {
         const client = this._client,
-            url = this._client.buildRequest('v1', 'videos/delete', params);
+            url = client.buildRequest('v1', 'videos/delete', params);
         return client.makeRequest(url);
     }
 
@@ -39,17 +48,18 @@ class Videos {
     // show.html
     show(params) {
         const client = this._client,
-            url = this._client.buildRequest('v1', 'videos/show', params);
+            url = client.buildRequest('v1', 'videos/show', params);
         return client.makeRequest(url);
     }
 
     // update.html
     update() {
         const client = this._client,
-            url = this._client.buildRequest('v1', 'videos/update', null);
+            url = client.buildRequest('v1', 'videos/update', null);
         return client.makeRequest(url);
     }
 
+    // https://developer.jwplayer.com/jw-platform/reference/v1/uploads.html#tracking-file-upload-progress
     getUploadUrl(params = {}) {
         return this.create(params)
             .then((response) => {

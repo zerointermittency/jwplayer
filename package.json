@@ -1,6 +1,6 @@
 {
   "name": "@zerointermittency/jwplayer",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "main": "ZIJWPlayer",
   "scripts": {
     "lint": "./node_modules/.bin/eslint **/*.js",
