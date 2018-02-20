@@ -1,3 +1,10 @@
+[![Build Status](https://travis-ci.org/zerointermittency/jwplayer.svg?branch=master)](https://travis-ci.org/zerointermittency/jwplayer)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9d15f40a5aac0015a745/maintainability)](https://codeclimate.com/github/zerointermittency/jwplayer/maintainability)
+[![npm version](https://badge.fury.io/js/%40zerointermittency%2Fjwplayer.svg)](https://badge.fury.io/js/%40zerointermittency%2Fjwplayer)
+[![Downloads](https://img.shields.io/npm/dt/@zerointermittency/jwplayer.svg)](https://www.npmjs.com/package/@zerointermittency/jwplayer)
+[![dependency status](https://david-dm.org/zerointermittency/jwplayer.svg)](https://david-dm.org/zerointermittency/jwplayer)
+[![devDependency status](https://david-dm.org/zerointermittency/jwplayer/dev-status.svg)](https://david-dm.org/zerointermittency/jwplayer)
+
 # Bienvenido
 
 Esta es una implementación de la [API de JWPlayer V1][jwplayer-api-v1] la cual automatiza las llamadas e implementa un control de errores bien manejado.

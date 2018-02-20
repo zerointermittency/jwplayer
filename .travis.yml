@@ -1,0 +1,12 @@
+plugins:
+  nodesecurity:
+    enabled: true
+language: node_js
+node_js:
+- lts/*
+sudo: false
+cache:
+  directories:
+  - node_modules
+script:
+- npm run lint

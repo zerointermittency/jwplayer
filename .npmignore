@@ -1,0 +1,13 @@
+# Mac
+.DS_Store
+
+# nodejs
+test
+example
+
+# git
+*.orig
+.gitmodules
+
+# Docs
+wiki

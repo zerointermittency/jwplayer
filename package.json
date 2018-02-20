@@ -1,6 +1,6 @@
 {
   "name": "@zerointermittency/jwplayer",
-  "version": "1.0.0-rc.4",
+  "version": "1.0.0-rc.7",
   "main": "ZIJWPlayer",
   "scripts": {
     "lint": "./node_modules/.bin/eslint **/*.js",
@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "@zerointermittency/error": "^1.0.6",
-    "aws-sdk": "^2.198.0",
     "debug": "^3.1.0",
     "node-fetch": "^2.0.0-alpha.9",
     "nonce-fast": "^1.0.1"
