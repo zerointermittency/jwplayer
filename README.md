@@ -89,7 +89,12 @@ access_mode: read-write
 maintenance: False
 ```
 
+# Ejemplos
+
+- [Subir cualquier archivo al S3 de amazon desde un formulario web][example-s3-upload-file]
+
 [jwplayer-api-v1]: https://developer.jwplayer.com/jw-platform/reference/v1/index.html
 [s3-signed-url]: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#getSignedUrl-property
 [api-v1]: https://developer.jwplayer.com/jw-platform/reference/v1
 [api-v1-status]: https://developer.jwplayer.com/jw-platform/reference/v1/methods/status.html
+[example-s3-upload-file]: example/s3-upload-file/

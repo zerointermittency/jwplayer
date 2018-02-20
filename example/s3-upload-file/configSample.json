@@ -1,0 +1,8 @@
+{
+    "aws_access_key": "AKIAIOSFODNN7EXAMPLE",
+    "aws_secret_key": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    "aws_region": "us-east-1",
+    "s3_bucket": "buckets3",
+    "s3_bucket_file_path": "jwplayer-test/${filename}",
+    "s3_bucket_start_with": "jwplayer-test/"
+}
