@@ -47,8 +47,14 @@
         <label>ACL:</label>
         <input class="form-control" type="text" name="acl" v-model="acl" />
       </div>
-      <div v-html="status"></div>
       <h3>Único campo visible</h3>
+      <component
+            :is="alert"
+            :code="error.code"
+            :status="error.status"
+            :message="error.message"
+            :text="success.text"
+            :url="success.url"></component>
       <div class="form-group">
         <label>File:</label>
         <input class="form-control-file" type="file" name="file" @change="fileToUpload = $event.target.files[0]" />
@@ -60,6 +66,10 @@
 </template>
 
 <script>
+  import AlertError from './components/AlertError.vue';
+  import AlertSuccess from './components/AlertSuccess.vue';
+
+  import S3 from 'aws-sdk/clients/s3';
   import Crypto from "crypto-js";
   import moment from "moment";
   import uuid from "uuid";
@@ -120,14 +130,16 @@
         "bucket": `http://${config.s3_bucket}.s3.amazonaws.com/`,
         "key": config.s3_bucket_file_path,
         "fileToUpload": "",
+
+        "alert": '',
+        "success": {},
+        "error": {},
         "submitDisabled": false,
         "uploadProgress": "",
-        "status": "",
       };
     },
     methods: {
-      submitted() {
-        this.submitDisabled = true;
+      formData() {
         const formData = new FormData();
 
         formData.append("key", this.key);
@@ -141,36 +153,80 @@
         formData.append("acl", this.acl);
         formData.append("file", this.fileToUpload);
 
+        return formData;
+      },
+      readXmlError(response) {
+        const ast = parseSync(response.data, {
+            parentNodes: false,
+          }),
+          xml = Q(ast),
+          code = xml.find('Code').text(),
+          status = response.status,
+          message = xml.find('Message').text();
+
+        return {code, status, message};
+      },
+      getSignedUrl(key, filename) {
+        const s3 = new S3({
+          accessKeyId: config.aws_access_key,
+          secretAccessKey: config.aws_secret_key,
+          bucket: config.s3_bucket,
+        });
+
+        const params = {
+          Bucket: config.s3_bucket,
+          Key: key.replace('${filename}', filename),
+          Expires: 60
+        };
+        return s3.getSignedUrl('getObject', params).replace('https', 'http');
+      },
+      submitted() {
+        this.submitDisabled = true;
+        const formData = this.formData();
+
         axios.post(this.bucket, formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },
             onUploadProgress: (progressEvent) => {
-              this.uploadProgress = `Uploaded ${((progressEvent.loaded/progressEvent.total)*100).toFixed(2)}%`;
+              const uploadPercentage = (
+                (progressEvent.loaded / progressEvent.total) * 100
+              ).toFixed(2);
+              this.uploadProgress = `Uploaded ${uploadPercentage}%`;
             },
         })
           .then((response) => {
             let text = '';
-            if (response.status === 204) {
+            if (response.status === 204)
               text = "Se subio correctamente el archivo al S3";
-            } else {
+            else
               text = `Status code: ${response.status}  - Data: ${response.data}`;
-            }
-            this.status = `<div class="alert alert-success alert-dismissible fade show" role="alert">${text}</div>`;
+
+            this.success = {
+              text: text,
+              url: this.getSignedUrl(this.key, this.fileToUpload.name),
+            };
+            this.alert = 'appAlertSuccess';
             this.submitDisabled = false;
           })
           .catch((error) => {
-            const ast = parseSync(error.response.data, {
-                parentNodes: false,
-              }),
-              xml = Q(ast),
-              code = xml.find('Code').text(),
-              message = xml.find('Message').text();
+            if (error.response != undefined)
+              this.error = this.readXmlError(error.response);
+            else
+              this.error = {
+                code: 'Internal error',
+                status: '',
+                message: error.message,
+              };
 
-            this.status = `<div class="alert alert-danger alert-dismissible fade show" role="alert"><h3>Code: ${code}</h3><p>Status code: ${error.response.status}</p><p>Message: ${message}</p></div>`;
+            this.alert = 'appAlertError';
             this.submitDisabled = false;
           });
       },
+    },
+    components: {
+      appAlertError: AlertError,
+      appAlertSuccess: AlertSuccess,
     },
   };
 </script>

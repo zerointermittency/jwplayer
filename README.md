@@ -91,7 +91,7 @@ maintenance: False
 
 # Ejemplos
 
-- [Subir cualquier archivo al S3 de amazon desde un formulario web][example-s3-upload-file]
+- [Como subir un archivo al S3 de amazon desde un formulario web][example-s3-upload-file]
 
 [jwplayer-api-v1]: https://developer.jwplayer.com/jw-platform/reference/v1/index.html
 [s3-signed-url]: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#getSignedUrl-property
