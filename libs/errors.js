@@ -10,20 +10,20 @@ class JWPlayerError extends ZIError {
 }
 
 module.exports = {
-    internal: (extra) => new JWPlayerError({
+    internal: extra => new JWPlayerError({
         code: 100,
         name: 'internal',
         message: 'Internal error',
         level: ZIError.level.fatal,
         extra: extra,
     }),
-    JWPlatformInvalidJSON: (message) => new JWPlayerError({
+    JWPlatformInvalidJSON: message => new JWPlayerError({
         code: 101,
         name: 'JWPlatformInvalidJSON',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformTimeout: (message) => new JWPlayerError({
+    JWPlatformTimeout: message => new JWPlayerError({
         code: 102,
         name: 'JWPlatformTimeout',
         message: message,
@@ -31,212 +31,212 @@ module.exports = {
     }),
     // Errors defined for:
     // https://developer.jwplayer.com/jw-platform/reference/v1/errors.html
-    JWPlatformUnknownError: (message) => new JWPlayerError({
+    JWPlatformUnknownError: message => new JWPlayerError({
         code: 103,
         name: 'JWPlatformUnknownError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformNotFoundError: (message) => new JWPlayerError({
+    JWPlatformNotFoundError: message => new JWPlayerError({
         code: 104,
         name: 'JWPlatformNotFoundError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformNoMethodError: (message) => new JWPlayerError({
+    JWPlatformNoMethodError: message => new JWPlayerError({
         code: 105,
         name: 'JWPlatformNoMethodError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformNotImplementedError: (message) => new JWPlayerError({
+    JWPlatformNotImplementedError: message => new JWPlayerError({
         code: 106,
         name: 'JWPlatformNotImplementedError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformNotSupportedError: (message) => new JWPlayerError({
+    JWPlatformNotSupportedError: message => new JWPlayerError({
         code: 107,
         name: 'JWPlatformNotSupportedError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformCallFailedError: (message) => new JWPlayerError({
+    JWPlatformCallFailedError: message => new JWPlayerError({
         code: 108,
         name: 'JWPlatformCallFailedError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformCallInvalidError: (message) => new JWPlayerError({
+    JWPlatformCallInvalidError: message => new JWPlayerError({
         code: 109,
         name: 'JWPlatformCallInvalidError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformParameterMissingError: (message) => new JWPlayerError({
+    JWPlatformParameterMissingError: message => new JWPlayerError({
         code: 110,
         name: 'JWPlatformParameterMissingError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformParameterEmptyError: (message) => new JWPlayerError({
+    JWPlatformParameterEmptyError: message => new JWPlayerError({
         code: 111,
         name: 'JWPlatformParameterEmptyError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformParameterTypeEmptyError: (message) => new JWPlayerError({
+    JWPlatformParameterTypeEmptyError: message => new JWPlayerError({
         code: 112,
         name: 'JWPlatformParameterEmptyError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformAPIParameterEncodingError: (message) => new JWPlayerError({
+    JWPlatformAPIParameterEncodingError: message => new JWPlayerError({
         code: 113,
         name: 'JWPlatformAPIParameterEncodingError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformParameterEncodingError: (message) => new JWPlayerError({
+    JWPlatformParameterEncodingError: message => new JWPlayerError({
         code: 114,
         name: 'JWPlatformAPIParameterEncodingError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformParameterInvalidError: (message) => new JWPlayerError({
+    JWPlatformParameterInvalidError: message => new JWPlayerError({
         code: 115,
         name: 'JWPlatformParameterInvalidError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformPreconditionFailedError: (message) => new JWPlayerError({
+    JWPlatformPreconditionFailedError: message => new JWPlayerError({
         code: 116,
         name: 'JWPlatformPreconditionFailedError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformItemAlreadyExistsError: (message) => new JWPlayerError({
+    JWPlatformItemAlreadyExistsError: message => new JWPlayerError({
         code: 117,
         name: 'JWPlatformItemAlreadyExistsError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformPermissionDeniedError: (message) => new JWPlayerError({
+    JWPlatformPermissionDeniedError: message => new JWPlayerError({
         code: 118,
         name: 'JWPlatformPermissionDeniedError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformDatabaseError: (message) => new JWPlayerError({
+    JWPlatformDatabaseError: message => new JWPlayerError({
         code: 119,
         name: 'JWPlatformDatabaseError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformDigestInvalidError: (message) => new JWPlayerError({
+    JWPlatformDigestInvalidError: message => new JWPlayerError({
         code: 120,
         name: 'JWPlatformDigestInvalidError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformFileUploadFailedError: (message) => new JWPlayerError({
+    JWPlatformFileUploadFailedError: message => new JWPlayerError({
         code: 121,
         name: 'JWPlatformFileUploadFailedError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformFileSizeInvalidError: (message) => new JWPlayerError({
+    JWPlatformFileSizeInvalidError: message => new JWPlayerError({
         code: 122,
         name: 'JWPlatformFileSizeInvalidError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformInternalError: (message) => new JWPlayerError({
+    JWPlatformInternalError: message => new JWPlayerError({
         code: 123,
         name: 'JWPlatformInternalError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformApiKeyMissingError: (message) => new JWPlayerError({
+    JWPlatformApiKeyMissingError: message => new JWPlayerError({
         code: 124,
         name: 'JWPlatformApiKeyMissingError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformApiKeyInvalidError: (message) => new JWPlayerError({
+    JWPlatformApiKeyInvalidError: message => new JWPlayerError({
         code: 125,
         name: 'JWPlatformApiKeyInvalidError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformTimestampMissingError: (message) => new JWPlayerError({
+    JWPlatformTimestampMissingError: message => new JWPlayerError({
         code: 126,
         name: 'JWPlatformTimestampMissingError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformTimestampInvalidError: (message) => new JWPlayerError({
+    JWPlatformTimestampInvalidError: message => new JWPlayerError({
         code: 127,
         name: 'JWPlatformTimestampInvalidError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformTimestampExpiredError: (message) => new JWPlayerError({
+    JWPlatformTimestampExpiredError: message => new JWPlayerError({
         code: 128,
         name: 'JWPlatformTimestampExpiredError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformNonceMissingError: (message) => new JWPlayerError({
+    JWPlatformNonceMissingError: message => new JWPlayerError({
         code: 129,
         name: 'JWPlatformNonceMissingError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformNonceInvalidError: (message) => new JWPlayerError({
+    JWPlatformNonceInvalidError: message => new JWPlayerError({
         code: 130,
         name: 'JWPlatformNonceInvalidError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformSignatureMissingError: (message) => new JWPlayerError({
+    JWPlatformSignatureMissingError: message => new JWPlayerError({
         code: 131,
         name: 'JWPlatformSignatureMissingError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformSignatureInvalidError: (message) => new JWPlayerError({
+    JWPlatformSignatureInvalidError: message => new JWPlayerError({
         code: 132,
         name: 'JWPlatformSignatureInvalidError',
         message: message,
         level: ZIError.level.fatal,
     }),
     // https://github.com/jwplayer/jwplatform-py/blob/master/jwplatform/errors.py
-    JWPlatformCallUnavailableError: (message) => new JWPlayerError({
+    JWPlatformCallUnavailableError: message => new JWPlayerError({
         code: 133,
         name: 'JWPlatformCallUnavailableError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformIntegrityError: (message) => new JWPlayerError({
+    JWPlatformIntegrityError: message => new JWPlayerError({
         code: 134,
         name: 'JWPlatformIntegrityError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformDigestMissingError: (message) => new JWPlayerError({
+    JWPlatformDigestMissingError: message => new JWPlayerError({
         code: 135,
         name: 'JWPlatformDigestMissingError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformFileSizeMissingError: (message) => new JWPlayerError({
+    JWPlatformFileSizeMissingError: message => new JWPlayerError({
         code: 136,
         name: 'JWPlatformFileSizeMissingError',
         message: message,
         level: ZIError.level.fatal,
     }),
-    JWPlatformRateLimitExceededError: (message) => new JWPlayerError({
+    JWPlatformRateLimitExceededError: message => new JWPlayerError({
         code: 137,
         name: 'JWPlatformRateLimitExceededError',
         message: message,
