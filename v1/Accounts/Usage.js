@@ -2,7 +2,6 @@
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/usage/
 class Usage {
-
     constructor(client) {
         this._client = client;
     }
@@ -20,7 +19,6 @@ class Usage {
             url = client.buildRequest('v1', 'accounts/usage/show', params);
         return client.makeRequest(url);
     }
-
 }
 
 module.exports = Usage;

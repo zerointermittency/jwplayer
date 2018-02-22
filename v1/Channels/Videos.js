@@ -2,7 +2,6 @@
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/channnels/videos/
 class Videos {
-
     constructor(client) {
         this._client = client;
     }
@@ -41,7 +40,6 @@ class Videos {
             url = client.buildRequest('v1', 'channnels/videos/update', params);
         return client.makeRequest(url);
     }
-
 }
 
 module.exports = Videos;

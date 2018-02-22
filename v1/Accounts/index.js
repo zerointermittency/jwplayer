@@ -6,7 +6,6 @@ const Tags = require('./Tags.js'),
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/
 class Accounts {
-
     constructor(client) {
         this._client = client;
 
@@ -16,6 +15,17 @@ class Accounts {
         this.templates = new Templates(client);
         // usage/index.html
         this.usage = new Usage(client);
+    }
+
+    /**
+     * @param {string} login
+     * @param {string} password
+     * @returns {error} Not allowed to execute this API call :(
+     */
+    create(params) {
+        const client = this._client,
+            url = client.buildRequest('v1', 'accounts/create', params);
+        return client.makeRequest(url);
     }
 
     // show.html
@@ -31,7 +41,6 @@ class Accounts {
             url = client.buildRequest('v1', 'accounts/update', params);
         return client.makeRequest(url);
     }
-
 }
 
 module.exports = Accounts;

@@ -1,7 +1,6 @@
 'use strict';
 
 class ZIJWPlayer {
-
     constructor(client) {
         this._client = client;
         this._api = {};
@@ -23,7 +22,6 @@ class ZIJWPlayer {
     get v2() {
         return this._loadApi('v2');
     }
-
 }
 
 module.exports = ZIJWPlayer;

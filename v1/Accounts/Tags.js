@@ -2,7 +2,6 @@
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/tags/
 class Tags {
-
     constructor(client) {
         this._client = client;
     }
@@ -41,7 +40,6 @@ class Tags {
             url = client.buildRequest('v1', 'accounts/tags/update', params);
         return client.makeRequest(url);
     }
-
 }
 
 module.exports = Tags;

@@ -3,12 +3,10 @@
 const ZIError = require('@zerointermittency/error');
 
 class JWPlayerError extends ZIError {
-
     constructor(opts) {
         opts.prefix = 'zi-jwplayer';
         super(opts);
     }
-
 }
 
 module.exports = {

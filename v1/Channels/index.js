@@ -4,7 +4,6 @@ const Videos = require('./Videos.js');
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/channels/
 class Channels {
-
     constructor(client) {
         this._client = client;
 
@@ -46,7 +45,6 @@ class Channels {
             url = client.buildRequest('v1', 'channels/update', params);
         return client.makeRequest(url);
     }
-
 }
 
 module.exports = Channels;

@@ -2,7 +2,6 @@
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/tracks/
 class Tracks {
-
     constructor(client) {
         this._client = client;
     }
@@ -41,7 +40,6 @@ class Tracks {
             url = client.buildRequest('v1', 'videos/tracks/update', params);
         return client.makeRequest(url);
     }
-
 }
 
 module.exports = Tracks;

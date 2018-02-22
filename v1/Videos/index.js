@@ -10,7 +10,6 @@ const Conversions = require('./Conversions.js'),
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/
 class Videos {
-
     constructor(client) {
         this._client = client;
 
@@ -59,7 +58,8 @@ class Videos {
         return client.makeRequest(url);
     }
 
-    // https://developer.jwplayer.com/jw-platform/reference/v1/uploads.html#tracking-file-upload-progress
+    // https://developer.jwplayer.com
+    // /jw-platform/reference/v1/uploads.html#tracking-file-upload-progress
     getUploadUrl(params = {}) {
         return this.create(params)
             .then((response) => {
@@ -87,7 +87,6 @@ class Videos {
                 };
             });
     }
-
 }
 
 module.exports = Videos;

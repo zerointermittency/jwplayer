@@ -2,7 +2,6 @@
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/accounts/templates/
 class Templates {
-
     constructor(client) {
         this._client = client;
     }
@@ -41,7 +40,6 @@ class Templates {
             url = client.buildRequest('v1', 'accounts/templates/update', params);
         return client.makeRequest(url);
     }
-
 }
 
 module.exports = Templates;

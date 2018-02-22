@@ -17,7 +17,6 @@ const querystring = {
     debug = require('debug')('zi-jwplayer:client');
 
 class Client {
-
     constructor(key, secret, opts = {}) {
         this._key = key || process.env.JWPLAYER_API_KEY;
         this._secret = secret || process.env.JWPLAYER_API_SECRET;
@@ -29,7 +28,7 @@ class Client {
         this._apiFormat = 'json';
 
         const ProtocolAgent = Agent[this._protocol];
-        this._agent = new ProtocolAgent({ keepAlive: true });
+        this._agent = new ProtocolAgent({keepAlive: true});
     }
 
     _sortParams(params) {
@@ -112,7 +111,6 @@ class Client {
                 });
         });
     }
-
 }
 
 module.exports = Client;

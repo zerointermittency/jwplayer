@@ -2,7 +2,6 @@
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/videos/thumbnails/
 class Thumbnails {
-
     constructor(client) {
         this._client = client;
     }
@@ -20,7 +19,6 @@ class Thumbnails {
             url = client.buildRequest('v1', 'videos/thumbnails/update', params);
         return client.makeRequest(url);
     }
-
 }
 
 module.exports = Thumbnails;

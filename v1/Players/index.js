@@ -2,7 +2,6 @@
 
 // BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/players/
 class Players {
-
     constructor(client) {
         this._client = client;
     }
@@ -41,7 +40,6 @@ class Players {
             url = client.buildRequest('v1', 'players/update', params);
         return client.makeRequest(url);
     }
-
 }
 
 module.exports = Players;
