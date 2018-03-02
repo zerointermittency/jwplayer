@@ -30,7 +30,7 @@ npm run build
 
 ## Archivo de configuración
 
-El archivo debe ir en en la carpeta principal del projecto con el nombre `config.json` y el ejemplo de los parametros que contiene este estan en el archivo [configSample.json](example/s3-upload-file/configSample.json)
+El archivo debe ir en en la carpeta principal del projecto con el nombre `config.json` y el ejemplo de los parametros que contiene este estan en el archivo [configSample.json](configSample.json)
 
 ## Habilitar CORS en el S3
 
