@@ -25,6 +25,12 @@ npm run build
     - [Upload examples](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-post-example.html)
 - [Signature V4 examples](https://docs.aws.amazon.com/general/latest/gr/signature-v4-examples.html#signature-v4-examples-javascript)
 - [AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+- [Form fields](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOST.html)
+- [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/dev/ChgStoClsOfObj.html)
+
+## Archivo de configuración
+
+El archivo debe ir en en la carpeta principal del projecto con el nombre `config.json` y el ejemplo de los parametros que contiene este estan en el archivo [configSample.json](example/s3-upload-file/configSample.json)
 
 ## Habilitar CORS en el S3
 

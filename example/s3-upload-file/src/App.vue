@@ -39,6 +39,11 @@
       </div>
 
       <div class="form-group">
+        <label>X-Amz-Storage-Class:</label>
+        <input class="form-control" type="text" name="X-Amz-Storage-Class" v-model="XAmzStorageClass" />
+      </div>
+
+      <div class="form-group">
         <label>X-Amz-Server-Side-Encryption:</label>
         <input class="form-control" type="text" name="X-Amz-Server-Side-Encryption" v-model="XAmzServerSideEncryption" />
       </div>
@@ -83,6 +88,7 @@
     acl: "private",
     XAmzServerSideEncryption: "AES256",
     XAmzAlgorithm: "AWS4-HMAC-SHA256",
+    XAmzStorageClass: "STANDARD_IA",
     AWSSignatureVersion: "AWS4",
     service: "s3",
   };
@@ -104,6 +110,7 @@
       {"x-amz-server-side-encryption": defaultValues.XAmzServerSideEncryption},
       {"x-amz-credential": XAmzCredential},
       {"x-amz-algorithm": defaultValues.XAmzAlgorithm},
+      {"x-amz-storage-class": defaultValues.XAmzStorageClass},
       {"x-amz-date": dateIsoFormat }
     ]
   };
@@ -125,6 +132,7 @@
         "XAmzMetaUuid": uuid4,
         "XAmzServerSideEncryption": defaultValues.XAmzServerSideEncryption,
         "XAmzAlgorithm": defaultValues.XAmzAlgorithm,
+        "XAmzStorageClass": defaultValues.XAmzStorageClass,
         "acl": defaultValues.acl,
         "Policy": stringToSign,
         "bucket": `http://${config.s3_bucket}.s3.amazonaws.com/`,
@@ -150,6 +158,7 @@
         formData.append("X-Amz-Signature", this.XAmzSignature);
         formData.append("X-Amz-Algorithm", this.XAmzAlgorithm);
         formData.append("X-Amz-Server-Side-Encryption", this.XAmzServerSideEncryption);
+        formData.append("X-Amz-Storage-Class", this.XAmzStorageClass);
         formData.append("acl", this.acl);
         formData.append("file", this.fileToUpload);
 
