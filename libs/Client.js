@@ -37,6 +37,7 @@ class Client {
 
         for (let keyIndex = 0; keyIndex < keysToOrder.length; keyIndex++) {
             const keyToOrder = keysToOrder[keyIndex];
+
             sortedParams[keyToOrder] = params[keyToOrder];
         }
 
@@ -56,7 +57,12 @@ class Client {
         params['api_kit'] = `${this._userAgent}-${packageVersion}`;
         params = this._sortParams(params);
 
-        const paramsUrlEncoded = querystring.stringify(params),
+        const paramsUrlEncoded = querystring.stringify(params)
+                .replace(/\!/g, '%21')
+                .replace(/\'/g, '%27')
+                .replace(/\(/g, '%28')
+                .replace(/\)/g, '%29')
+                .replace(/\*/g, '%2A'),
             hash = crypto.createHash('sha1'),
             data = paramsUrlEncoded + this._secret;
 
