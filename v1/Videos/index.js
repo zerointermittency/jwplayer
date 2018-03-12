@@ -52,9 +52,9 @@ class Videos {
     }
 
     // update.html
-    update() {
+    update(params) {
         const client = this._client,
-            url = client.buildRequest('v1', 'videos/update', null);
+            url = client.buildRequest('v1', 'videos/update', params);
         return client.makeRequest(url);
     }
 
