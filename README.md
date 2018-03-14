@@ -7,7 +7,7 @@
 
 # Bienvenido
 
-Esta es una implementación de la [API de JWPlayer V1][jwplayer-api-v1] la cual automatiza las llamadas e implementa un control de errores bien manejado.
+Esta es una implementación de la [API de JWPlayer V1][jwplayer-api-v1] la cual automatiza las llamadas e implementa un control de errores siguiendo la [documentación](https://developer.jwplayer.com/jw-platform/reference/v1/errors.html) y el archivo de errores implementado en [python](https://github.com/jwplayer/jwplatform-py/blob/master/jwplatform/errors.py) por ellos.
 
 ## Instalación
 
@@ -85,7 +85,7 @@ jwplayer.v1.videos.show({video_key: 'VQGqnyac'})
 Desafortunadamente no se pueden subir archivos desde el S3 con HTTPS ya que actualmente el certificado de este protocolo arroja que no es seguro por lo que al parecer JWPlayer no descarga correctamente el video, por esto hay que usar HTTP. Lo ideal es que la URL se genere con [permisos temporales][s3-signed-url] para no dejar expuesto el contenido de manera indefinida al dejarlo como publico.
 
 ## Status
-Actualmente no funciona debido a que JWPlayer esta devolviendo un texto plano, esta ignorando el parametro `api_format` de XML o JSON lo cual no concuerda con la [documentación][api-v1-status] y de hecho esta ignorando todos los parametros, ya que la siguiente URL https://api.jwplatform.com/v1/status devuelve lo siguiente:
+Se esta haciendo la transformación del texto a json a pesar que JWPlayer esta devolviendo un texto plano, esta ignorando el parametro `api_format` de XML o JSON lo cual no concuerda con la [documentación][api-v1-status] y de hecho esta ignorando todos los parametros, ya que la siguiente URL https://api.jwplatform.com/v1/status devuelve lo siguiente:
 
 ```
 status: ok

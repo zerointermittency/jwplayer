@@ -1,6 +1,6 @@
 {
   "name": "@zerointermittency/jwplayer",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "ZIJWPlayer",
   "scripts": {
     "lint": "./node_modules/.bin/eslint . --ext '.js' --ignore-pattern 'node_modules/' --ignore-pattern 'example/'",
@@ -24,14 +24,14 @@
   "devDependencies": {
     "@zerointermittency/eslint-config-zi": "^1.0.1",
     "chai": "^4.1.2",
-    "eslint": "^4.16.0",
-    "mocha": "^5.0.0",
-    "nyc": "^11.4.1"
+    "eslint": "^4.18.2",
+    "mocha": "^5.0.4",
+    "nyc": "^11.6.0"
   },
   "dependencies": {
     "@zerointermittency/error": "^1.0.6",
     "debug": "^3.1.0",
-    "node-fetch": "^2.0.0",
+    "node-fetch": "^2.1.1",
     "nonce-fast": "^1.0.1"
   }
 }

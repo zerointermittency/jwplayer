@@ -72,7 +72,7 @@ class Client {
         return `${url}?${params}`;
     }
 
-    makeRequest(url, headers = {}) {
+    makeRequest(url, headers = {}, parse = 'json') {
         debug(url);
         return new Promise((resolve, reject) => {
             headers = Object.assign({}, headers);
@@ -83,6 +83,8 @@ class Client {
                 .then((res) => {
                     debug(`Status code: ${res.status}`);
                     response = res;
+                    if (res.headers.get('content-type') === 'text/plain' && parse === 'text')
+                        return response.text();
                     return response.json();
                 })
                 .then((data) => {
