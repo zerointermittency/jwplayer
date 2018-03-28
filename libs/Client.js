@@ -26,6 +26,7 @@ class Client {
         this._host = opts.host || 'api.jwplatform.com';
         this._userAgent = `node-jwplayer/${opts.userAgent || '@zerointermittency'}`;
         this._apiFormat = 'json';
+        this._timeout = opts.timeout || 5000;
 
         const ProtocolAgent = Agent[this._protocol];
         this._agent = new ProtocolAgent({keepAlive: true});
@@ -79,7 +80,7 @@ class Client {
             headers['User-Agent'] = this._userAgent;
 
             let response;
-            fetch(url, {method: 'GET', headers, agent: this._agent})
+            fetch(url, {method: 'GET', headers, agent: this._agent, timeout: this._timeout})
                 .then((res) => {
                     debug(`Status code: ${res.status}`);
                     response = res;
