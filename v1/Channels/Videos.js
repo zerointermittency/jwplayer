@@ -1,6 +1,6 @@
 'use strict';
 
-// BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/channnels/videos/
+// BASE: https://developer.jwplayer.com/jw-platform/reference/v1/methods/channels/videos/
 class Videos {
     constructor(client) {
         this._client = client;
@@ -9,35 +9,35 @@ class Videos {
     // create.html
     create(params) {
         const client = this._client,
-            url = client.buildRequest('v1', 'channnels/videos/create', params);
+            url = client.buildRequest('v1', 'channels/videos/create', params);
         return client.makeRequest(url);
     }
 
     // delete.html
     delete(params) {
         const client = this._client,
-            url = client.buildRequest('v1', 'channnels/videos/delete', params);
+            url = client.buildRequest('v1', 'channels/videos/delete', params);
         return client.makeRequest(url);
     }
 
     // list.html
     list(params) {
         const client = this._client,
-            url = client.buildRequest('v1', 'channnels/videos/list', params);
+            url = client.buildRequest('v1', 'channels/videos/list', params);
         return client.makeRequest(url);
     }
 
     // show.html
     show(params) {
         const client = this._client,
-            url = client.buildRequest('v1', 'channnels/videos/show', params);
+            url = client.buildRequest('v1', 'channels/videos/show', params);
         return client.makeRequest(url);
     }
 
     // update.html
     update(params) {
         const client = this._client,
-            url = client.buildRequest('v1', 'channnels/videos/update', params);
+            url = client.buildRequest('v1', 'channels/videos/update', params);
         return client.makeRequest(url);
     }
 }
